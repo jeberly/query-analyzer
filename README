@@ -15,7 +15,7 @@ information on understanding the results.
 
 = Installation
 
-script/plugin install http://svn.nfectio.us/plugins/query_analyzer
+script/plugin install git@github.com:jeberly/query-analyzer.git
 
 = Example Use
 
