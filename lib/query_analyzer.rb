@@ -39,7 +39,7 @@ module ActiveRecord
           
           if @logger and @logger.level <= Logger::INFO
             @logger.debug(
-              @logger.silence do
+              ActiveRecord::Base.silence do
                 explain_results = select_without_analyzer("explain #{sql}", name)
                 format_log_entry("\033[1;34m############ FIXME - UNOPTIMIZED QUERY for #{name} ############ \033[0m\n",
                   "#{explain_results.qa_columnized}\n"
