@@ -43,7 +43,7 @@ module ActiveRecord
                 explain_results = select_without_analyzer("explain #{sql}", name)
                 format_log_entry("\033[1;34m############ FIXME - UNOPTIMIZED QUERY for #{name} ############ \033[0m\n",
                   "#{explain_results.qa_columnized}\n"
-                ) if explain_results[0]["rows"].to_i > 100
+                ) if explain_results[0]["rows"].to_i > 100 && sql =~ / where[\s(]/i
               end
             ) if sql =~ /^select/i
           end          
