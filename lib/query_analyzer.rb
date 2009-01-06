@@ -37,7 +37,7 @@ module ActiveRecord
         def select(sql, name = nil)
           query_results = select_without_analyzer(sql, name)
           
-          if @logger and @logger.level <= Logger::INFO
+          if @logger and @logger.level == Logger::DEBUG
             @logger.debug(
               ActiveRecord::Base.silence do
                 explain_results = select_without_analyzer("explain #{sql}", name)
